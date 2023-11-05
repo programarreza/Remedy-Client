@@ -1,12 +1,18 @@
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import { NavLink } from "react-router-dom";
+import useAuth from "../../../Hooks/useAuth";
 
 const Nav = () => {
+  const { user, logout } = useAuth();
+
+  const handleLogout = () => {
+    logout();
+  }
   return (
     <Navbar fluid rounded className="shadow-lg">
       <Navbar.Brand href="#">
         <img
-          src="https://i.postimg.cc/PfCX7Sxy/Remedy_I2.png"
+          src="https://i.postimg.cc/k4RNH2Qm/Remedy.png"
           className="mr-3 h-6 sm:h-9"
           alt="Flowbite React Logo"
         />
@@ -15,29 +21,27 @@ const Nav = () => {
         </span>
       </Navbar.Brand>
       <div className="flex md:order-2">
-        <Dropdown
+        {
+          user && <Dropdown
           arrowIcon={false}
           inline
           label={
             <Avatar
               alt="User settings"
-              img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+              img={user.photoURL}
               rounded
             />
           }
         >
           <Dropdown.Header>
-            <span className="block text-sm">Bonnie Green</span>
-            <span className="block truncate text-sm font-medium">
-              name@flowbite.com
-            </span>
+            <span className="block text-sm">{user.displayName}</span>
+            
           </Dropdown.Header>
-          <Dropdown.Item>Dashboard</Dropdown.Item>
-          <Dropdown.Item>Settings</Dropdown.Item>
-          <Dropdown.Item>Earnings</Dropdown.Item>
+          
           <Dropdown.Divider />
-          <Dropdown.Item>Sign out</Dropdown.Item>
+          <Dropdown.Item onClick={handleLogout}>Sign out</Dropdown.Item>
         </Dropdown>
+        }
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
@@ -82,7 +86,8 @@ const Nav = () => {
           Wishlist
         </NavLink>
 
-        <div className="flex justify-center items-center gap-5">
+        {
+          user ? "" : <div className="flex justify-center items-center gap-5">
           <NavLink
             to="/login"
             className={({ isActive, isPending }) =>
@@ -100,6 +105,7 @@ const Nav = () => {
             Register
           </NavLink>
         </div>
+        }
       </Navbar.Collapse>
     </Navbar>
   );
