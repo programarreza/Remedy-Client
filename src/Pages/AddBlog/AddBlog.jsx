@@ -1,3 +1,4 @@
+// import axios from "axios";
 import { Button, TextInput, Textarea } from "flowbite-react";
 
 const AddBlog = () => {
@@ -9,8 +10,28 @@ const AddBlog = () => {
     const category = form.get("category");
     const shortDescription = form.get("shortDescription");
     const longDescription = form.get("longDescription");
+	const currentDate = new Date();
+	console.log(currentDate);
 
-	console.log(title, image, category, shortDescription, longDescription);
+	// console.log(title, image, category, shortDescription, longDescription);
+	const blog = {title, image, category, shortDescription, longDescription, currentDate}
+	console.log(blog);
+
+	// axios.post('/blog', blog)
+	fetch('http://localhost:5000/blog', {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify(blog)
+	})
+	.then(res => {
+		console.log(res);
+	})
+	.catch(error => {
+		console.log(error);
+	})
+	
   };
   return (
     <div className="px-24">

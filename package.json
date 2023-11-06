@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.6.0",
     "firebase": "^10.5.2",
     "flowbite-react": "^0.6.4",
     "prop-types": "^15.8.1",
