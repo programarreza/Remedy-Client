@@ -1,11 +1,11 @@
+import Banner from "../../components/Header/Banner/Banner";
+import RecentBlogs from "../../components/RecentBlogs/RecentBlogs";
 
 const Home = () => {
 	return (
 		<div>
-			<h2 className="font-grotesk">
-
-			this is home page
-			</h2>
+			<Banner></Banner>
+			<RecentBlogs></RecentBlogs>
 		</div>
 	);
 };
