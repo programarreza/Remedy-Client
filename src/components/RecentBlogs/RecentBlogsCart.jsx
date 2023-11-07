@@ -1,8 +1,9 @@
 import { Card, Button } from "flowbite-react";
 import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
 
 const RecentBlogsCart = ({ blog }) => {
-  const {  title, image, shortDescription, category } = blog;
+  const { _id, title, image, shortDescription, category } = blog;
   return (
     <div>
       <Card >
@@ -24,9 +25,11 @@ const RecentBlogsCart = ({ blog }) => {
           <Button outline gradientDuoTone="purpleToPink">
             Add to Wishlist
           </Button>
+          <Link to={`/blog-details/${_id}`}>
           <Button outline gradientDuoTone="purpleToPink">
             Details
           </Button>
+          </Link>
         </div>
       </Card>
     </div>

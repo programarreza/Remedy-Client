@@ -7,6 +7,7 @@ import FeaturedBlogs from "../Pages/FeaturedBlogs/FeaturedBlogs";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Wishlist from "../Pages/Wishlist/Wishlist";
+import BlogDetails from "../Pages/BlogDetails/BlogDetails";
 
 const router = createBrowserRouter([
 	{
@@ -40,6 +41,11 @@ const router = createBrowserRouter([
 			{
 				path: "register",
 				element: <Register></Register>
+			},
+			{
+				path: "/blog-details/:id",
+				element: <BlogDetails></BlogDetails>,
+				loader: ({params}) => fetch(`http://localhost:5000/blog-details/${params.id}`)
 			}
 		]
 	}
