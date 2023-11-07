@@ -1,33 +1,10 @@
 import { Card, Button } from "flowbite-react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import useAuth from "../../Hooks/useAuth";
-import useAxios from "../../Hooks/useAxios";
-import toast from "react-hot-toast";
 
-const RecentBlogsCart = ({ blog }) => {
-  const axios = useAxios();
-  const { _id, title, image, shortDescription, category } = blog;
-  const { user } = useAuth();
-  const email = user?.email;
 
-  const handleWishlist = () => {
-    console.log(_id);
-    const wishlist = {
-      title,
-      image,
-      shortDescription,
-      category,
-      email,
-    };
-    console.log(wishlist);
 
-    axios.post("/add-wishlist", wishlist)
-    .then((res) => {
-      toast.success("added successfully 👏")
-      console.log(res.data);
-    });
-  };
+const WishlistCart = ({ item }) => {
+  const { _id, title, image, shortDescription, category } = item;
 
   return (
     <div>
@@ -48,24 +25,21 @@ const RecentBlogsCart = ({ blog }) => {
         </p>
         <div className="flex justify-between">
           <Button
-            onClick={handleWishlist}
             outline
             gradientDuoTone="purpleToPink"
           >
-            Add to Wishlist
+            Remove Wishlist
           </Button>
-          <Link to={`/blog-details/${_id}`}>
             <Button outline gradientDuoTone="purpleToPink">
               Details
             </Button>
-          </Link>
         </div>
       </Card>
     </div>
   );
 };
 
-export default RecentBlogsCart;
-RecentBlogsCart.propTypes = {
-  blog: PropTypes.object,
-};
+export default WishlistCart;
+WishlistCart.propTypes = {
+	item: PropTypes.object,
+}
