@@ -1,13 +1,11 @@
-import { useLoaderData } from "react-router-dom";
-import { Card, Button } from "flowbite-react";
-import { Link } from "react-router-dom";
-import useAuth from "../../Hooks/useAuth";
-import { useState } from "react";
-import useAxios from "../../Hooks/useAxios";
+import { Button, Card } from "flowbite-react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { Link, useLoaderData } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
+import useAxios from "../../Hooks/useAxios";
 import Comments from "../../components/Comments/Comments";
-import useBlogs from "../../Hooks/useBlogs";
-import { useEffect } from "react";
+// import useBlogs from "../../Hooks/useBlogs";
 
 const BlogDetails = () => {
   const [comments, setComments] = useState([]);
@@ -16,23 +14,23 @@ const BlogDetails = () => {
   const { user } = useAuth();
   const [newComment, setNewComment] = useState();
   const { _id, title, image, shortDescription, longDescription } = blogs;
-  const { data, isLoading, isFetching, refetch } = useBlogs();
+//   const { data, isLoading, isFetching, refetch } = useBlogs();
 
-  if (isLoading) {
-    <h2>Loading...</h2>;
-  }
+//   if (isLoading) {
+//     <h2>Loading...</h2>;
+//   }
   useEffect(() => {
     axios
       .get(`/comment/?blog_id=${_id}`)
       .then((res) => {
-        refetch();
+        // refetch();
         console.log(res.data);
         setComments(res?.data);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [_id, axios, refetch]);
+  }, [_id, axios, ]);
 
   const handleComment = () => {
     const userName = user.displayName;
@@ -51,7 +49,7 @@ const BlogDetails = () => {
     axios
       .post("/comment", commentInfo)
       .then((res) => {
-        refetch();
+        // refetch();
         console.log(res.data);
         toast.success("added successfully 👏");
       })
@@ -96,7 +94,7 @@ const BlogDetails = () => {
             >
               Post Now
             </Button>
-            <Link to={`/blog-details/${_id}`}>
+            <Link to={`/blog-update/${_id}`}>
               <Button outline gradientDuoTone="purpleToPink">
                 Update
               </Button>
@@ -110,7 +108,7 @@ const BlogDetails = () => {
           <div className="max-w-3xl  px-4">
             <div className="flex justify-between items-center">
               <h2 className="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">
-                Discussion ({data?.comment?.length})
+                Discussion ({comments.length})
                 <div>
                   {comments.map((blogComment, i) => (
                     <Comments key={i} blogComment={blogComment}></Comments>

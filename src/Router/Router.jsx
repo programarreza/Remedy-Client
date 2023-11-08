@@ -8,6 +8,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Wishlist from "../Pages/Wishlist/Wishlist";
 import BlogDetails from "../Pages/BlogDetails/BlogDetails";
+import BlogUpdate from "../Pages/BlogUpdate/BlogUpdate";
 
 const router = createBrowserRouter([
 	{
@@ -47,10 +48,11 @@ const router = createBrowserRouter([
 				element: <BlogDetails></BlogDetails>,
 				loader: ({params}) => fetch(`http://localhost:5000/blog-details/${params.id}`)
 			},
-			// {
-			// 	path: "/blog-update",
-			// 	element: 
-			// }
+			{
+				path: "/blog-update/:id",
+				element: <BlogUpdate></BlogUpdate>,
+				loader: ({params}) => fetch(`http://localhost:5000/blog-update/${params.id}`)
+			}
 		]
 	}
 ])
