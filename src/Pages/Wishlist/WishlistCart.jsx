@@ -69,4 +69,5 @@ const WishlistCart = ({ item, refetch }) => {
 export default WishlistCart;
 WishlistCart.propTypes = {
   item: PropTypes.object,
+  refetch: PropTypes.object,
 };

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { Card, Button } from "flowbite-react";
 import useAuth from "../../Hooks/useAuth";
 import useAxios from "../../Hooks/useAxios";
@@ -65,3 +66,6 @@ const AllBlogsCard = ({ blog }) => {
 };
 
 export default AllBlogsCard;
+AllBlogsCard.propTypes = {
+  blog: PropTypes.object,
+}

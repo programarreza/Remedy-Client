@@ -11,7 +11,7 @@ const RecentBlogs = () => {
   return (
     <div>
       <h2 className="text-5xl font-bold my-12 text-center">Recent Blogs</h2>
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid grid-cols-3 gap-5 my-12">
         {data?.recentBlog?.map((blog) => (
           <RecentBlogsCart key={blog._id} blog={blog}></RecentBlogsCart>
         ))}
