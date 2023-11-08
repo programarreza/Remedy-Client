@@ -9,6 +9,8 @@ const Wishlist = () => {
     <h2>Loading...</h2>;
   }
 
+  console.log(data?.wishlist);
+
   return (
     <div className="grid grid-cols-3 gap-5">
       {data?.wishlist?.map((item) => (

@@ -1,34 +1,39 @@
 import { Button, Card } from "flowbite-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useLoaderData } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import useAxios from "../../Hooks/useAxios";
 import Comments from "../../components/Comments/Comments";
-// import useBlogs from "../../Hooks/useBlogs";
+import { useQuery } from "@tanstack/react-query";
 
 const BlogDetails = () => {
-  const [comments, setComments] = useState([]);
   const blogs = useLoaderData();
   const axios = useAxios();
   const { user } = useAuth();
   const [newComment, setNewComment] = useState();
   const { _id, title, image, shortDescription, longDescription, email } = blogs;
-  //   const { data, isLoading, isFetching, refetch } = useBlogs();
-  console.log(email);
+  
 
-  useEffect(() => {
-    axios
-      .get(`/comment/?blog_id=${_id}`)
-      .then((res) => {
-        // refetch();
-        console.log(res.data);
-        setComments(res?.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [_id, axios]);
+
+  
+  const getComment = async() => {
+    const response = await axios.get(`/comment/?blog_id=${_id}`);
+    return response;
+  }
+  
+    const { data: comment, isLoading, isError, error, refetch } = useQuery({
+      queryKey: ["blogs"],
+      queryFn: getComment,
+    });
+  
+    if(isLoading){
+      return <h2>Loading...</h2>
+    }
+    if(isError){
+      return <h2>Something wrong: {error}</h2>
+    }
+
 
   const handleComment = () => {
     const userName = user.displayName;
@@ -47,7 +52,7 @@ const BlogDetails = () => {
     axios
       .post("/comment", commentInfo)
       .then((res) => {
-        // refetch();
+        refetch()
         console.log(res.data);
         toast.success("added successfully 👏");
       })
@@ -120,9 +125,9 @@ const BlogDetails = () => {
           <div className="max-w-3xl  px-4">
             <div className="flex justify-between items-center">
               <h2 className="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">
-                Discussion ({comments.length})
+                Discussion ({comment?.data?.length})
                 <div>
-                  {comments.map((blogComment, i) => (
+                  {comment?.data?.map((blogComment, i) => (
                     <Comments key={i} blogComment={blogComment}></Comments>
                   ))}
                 </div>

@@ -7,7 +7,7 @@ import { useEffect } from "react";
 const AllBlogs = () => {
   const axios = useAxios();
   const [category, setCategory] = useState("");
-  const { data, isLoading, isFetching } = useBlogs(category);
+  const { data, isLoading,  } = useBlogs(category);
   const [blogs, setBlogs] = useState(data?.blogs)
 	
   useEffect(() => {
@@ -20,9 +20,9 @@ const AllBlogs = () => {
 	})
   }, [category, axios]);
 
-  console.log(data?.blogs, isLoading, isFetching);
+  
   if (isLoading) {
-    return <h2>Loading....</h2>;
+     <h2>Loading....</h2>;
   }
 
   const categories = [

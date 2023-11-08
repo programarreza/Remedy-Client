@@ -21,9 +21,9 @@ const WishlistCart = ({ item, refetch }) => {
       if (result.isConfirmed) {
         axios.delete(`/delete-wishlist/${_id}`)
         .then((res) => {
+          refetch();
           console.log(res.data);
           if (res.data.deletedCount > 0) {
-            refetch();
             Swal.fire({
               title: "Deleted!",
               text: "Your Blog has been deleted.",
