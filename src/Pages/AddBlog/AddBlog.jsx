@@ -1,9 +1,11 @@
 import { Button, TextInput, Textarea } from "flowbite-react";
 import useAxios from "../../Hooks/useAxios";
 import toast from "react-hot-toast";
+import useAuth from "../../Hooks/useAuth";
 
 const AddBlog = () => {
   const axios = useAxios();
+  const  {user} = useAuth();
 
   const handleAddBlog = (e) => {
     e.preventDefault();
@@ -14,6 +16,8 @@ const AddBlog = () => {
     const shortDescription = form.get("shortDescription");
     const longDescription = form.get("longDescription");
     const currentDate = new Date();
+    const email = user?.email;
+    console.log(email);
     console.log(currentDate);
 
     const blog = {
@@ -23,6 +27,7 @@ const AddBlog = () => {
       shortDescription,
       longDescription,
       currentDate,
+      email
     };
 
     axios

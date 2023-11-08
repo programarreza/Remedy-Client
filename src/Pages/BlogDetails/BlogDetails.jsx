@@ -13,12 +13,10 @@ const BlogDetails = () => {
   const axios = useAxios();
   const { user } = useAuth();
   const [newComment, setNewComment] = useState();
-  const { _id, title, image, shortDescription, longDescription } = blogs;
-//   const { data, isLoading, isFetching, refetch } = useBlogs();
+  const { _id, title, image, shortDescription, longDescription, email } = blogs;
+  //   const { data, isLoading, isFetching, refetch } = useBlogs();
+  console.log(email);
 
-//   if (isLoading) {
-//     <h2>Loading...</h2>;
-//   }
   useEffect(() => {
     axios
       .get(`/comment/?blog_id=${_id}`)
@@ -30,7 +28,7 @@ const BlogDetails = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [_id, axios, ]);
+  }, [_id, axios]);
 
   const handleComment = () => {
     const userName = user.displayName;
@@ -75,30 +73,44 @@ const BlogDetails = () => {
           <p className="font-normal text-gray-700 dark:text-gray-400">
             {longDescription}
           </p>
-          <div className="w-full mt-4">
-            <textarea
-              className="w-full"
-              onChange={(e) => setNewComment(e.target.value)}
-              id="comment"
-              placeholder="Comment Now"
-              required
-              rows={4}
-            />
-          </div>
+          {user?.email === email ? (
+            ""
+          ) : (
+            <div className="w-full mt-4">
+              <textarea
+                className="w-full"
+                onChange={(e) => setNewComment(e.target.value)}
+                id="comment"
+                placeholder="Comment Now"
+                required
+                rows={4}
+              />
+            </div>
+          )}
           <div className="flex gap-12">
-            <Button
-              onClick={handleComment}
-              type="submit"
-              outline
-              gradientDuoTone="purpleToPink"
-            >
-              Post Now
-            </Button>
-            <Link to={`/blog-update/${_id}`}>
-              <Button outline gradientDuoTone="purpleToPink">
-                Update
+            {user?.email === email ? (
+              <div className="border rounded-md flex items-center p-2 font-bold">
+                Sorry can not comment on own blog
+              </div>
+            ) : (
+              <Button
+                onClick={handleComment}
+                type="submit"
+                outline
+                gradientDuoTone="purpleToPink"
+              >
+                Post Now
               </Button>
-            </Link>
+            )}
+            {user?.email === email ? (
+              <Link to={`/blog-update/${_id}`}>
+                <Button outline gradientDuoTone="purpleToPink">
+                  Update
+                </Button>
+              </Link>
+            ) : (
+              ""
+            )}
           </div>
         </Card>
       </div>
