@@ -1,4 +1,4 @@
-
+import PropType from 'prop-types';
 const Comments = ({ blogComment }) => {
 	const {userName, userProfile, postDate, currentComment} = blogComment;
   
@@ -106,3 +106,4 @@ const Comments = ({ blogComment }) => {
 };
 
 export default Comments;
+Comments

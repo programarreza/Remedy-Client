@@ -7,37 +7,51 @@ import useAxios from "../../Hooks/useAxios";
 import toast from "react-hot-toast";
 import Comments from "../../components/Comments/Comments";
 import useBlogs from "../../Hooks/useBlogs";
+import { useEffect } from "react";
 
 const BlogDetails = () => {
+  const [comments, setComments] = useState([]);
   const blogs = useLoaderData();
   const axios = useAxios();
   const { user } = useAuth();
-  const [comment, setComment] = useState();
+  const [newComment, setNewComment] = useState();
   const { _id, title, image, shortDescription, longDescription } = blogs;
   const { data, isLoading, isFetching, refetch } = useBlogs();
 
   if (isLoading) {
     <h2>Loading...</h2>;
   }
+  useEffect(() => {
+    axios
+      .get(`/comment/?blog_id=${_id}`)
+      .then((res) => {
+        refetch();
+        console.log(res.data);
+        setComments(res?.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [_id, axios, refetch]);
 
   const handleComment = () => {
     const userName = user.displayName;
     const userProfile = user.photoURL;
     const postDate = new Date();
-    const currentComment = comment;
+    const currentComment = newComment;
 
     const commentInfo = {
       userName,
       userProfile,
       postDate,
       currentComment,
+      blog_id: _id,
     };
 
     axios
       .post("/comment", commentInfo)
       .then((res) => {
-		refetch()
-		setComment('')
+        refetch();
         console.log(res.data);
         toast.success("added successfully 👏");
       })
@@ -66,7 +80,7 @@ const BlogDetails = () => {
           <div className="w-full mt-4">
             <textarea
               className="w-full"
-              onChange={(e) => setComment(e.target.value)}
+              onChange={(e) => setNewComment(e.target.value)}
               id="comment"
               placeholder="Comment Now"
               required
@@ -98,7 +112,7 @@ const BlogDetails = () => {
               <h2 className="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">
                 Discussion ({data?.comment?.length})
                 <div>
-                  {data?.comment?.map((blogComment, i) => (
+                  {comments.map((blogComment, i) => (
                     <Comments key={i} blogComment={blogComment}></Comments>
                   ))}
                 </div>
