@@ -31,7 +31,8 @@ const RecentBlogsCart = ({ blog }) => {
 
   return (
     <div>
-      <Card>
+      <Card className="h-[550px]">
+        
         <img
           src={image}
           alt="Meaningful alt text for an image that is not purely decorative"
@@ -44,8 +45,10 @@ const RecentBlogsCart = ({ blog }) => {
           Category: {category}
         </p>
         <p className="font-normal text-gray-700 dark:text-gray-400">
-          {shortDescription}
-        </p>
+          {
+					shortDescription.length > 150 ? <p> {shortDescription.slice(0, 160)} <span className='text-blue-700'>.....</span></p> : <p>{shortDescription}</p>
+          }
+          </p>
         <div className="flex justify-between">
           <Button
             onClick={handleWishlist}
