@@ -1,7 +1,10 @@
-// import axios from "axios";
 import { Button, TextInput, Textarea } from "flowbite-react";
+import useAxios from "../../Hooks/useAxios";
+import toast from "react-hot-toast";
 
 const AddBlog = () => {
+  const axios = useAxios();
+
   const handleAddBlog = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
@@ -10,28 +13,27 @@ const AddBlog = () => {
     const category = form.get("category");
     const shortDescription = form.get("shortDescription");
     const longDescription = form.get("longDescription");
-	const currentDate = new Date();
-	console.log(currentDate);
+    const currentDate = new Date();
+    console.log(currentDate);
 
-	// console.log(title, image, category, shortDescription, longDescription);
-	const blog = {title, image, category, shortDescription, longDescription, currentDate}
-	console.log(blog);
+    const blog = {
+      title,
+      image,
+      category,
+      shortDescription,
+      longDescription,
+      currentDate,
+    };
 
-	// axios.post('/blog', blog)
-	fetch('http://localhost:5000/blog', {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json"
-		},
-		body: JSON.stringify(blog)
-	})
-	.then(res => {
-		console.log(res);
-	})
-	.catch(error => {
-		console.log(error);
-	})
-	
+    axios
+      .post("/blog", blog)
+      .then((res) => {
+        console.log(res);
+        toast.success("added successfully 👏");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <div className="px-24">

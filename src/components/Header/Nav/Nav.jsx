@@ -28,7 +28,7 @@ const Nav = () => {
           label={
             <Avatar
               alt="User settings"
-              img={user.photoURL}
+              img={user?.photoURL}
               rounded
             />
           }

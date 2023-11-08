@@ -25,7 +25,7 @@ const Subscribe = () => {
           </div>
         </div>
 		<div className="w-1/2 ">
-			<Lottie animationData={emailAnimation}></Lottie>
+			<Lottie animationData={emailAnimation} loop={false}></Lottie>
 		</div>
       </div>
     </div>
