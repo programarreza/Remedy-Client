@@ -45,12 +45,12 @@ const AddBlog = () => {
       });
   };
   return (
-    <div className="px-24">
+    <div className="px-5 md:px-24">
       <h2 className="text-5xl text-center font-semibold mt-12 mb-8">
         Add Blog
       </h2>
       <form onSubmit={handleAddBlog}>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-2 gap-4">
           <div>
             <TextInput
               name="title"

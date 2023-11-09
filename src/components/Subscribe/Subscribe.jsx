@@ -8,8 +8,8 @@ const Subscribe = () => {
   }
   return (
     <div className="w-full h-[70vh] bg-[url('https://i.postimg.cc/fyqttCQY/gray-abstract-wireframe-technology-background.jpg')] bg-cover bg-center shadow-lg">
-      <div className="w-full h-full flex  justify-center items-center ">
-        <div className="w-1/2">
+      <div className="w-full h-full  md:flex  justify-center items-center ">
+        <div className="md:w-1/2">
           <h2 className="text-3xl md:text-5xl text-center">
             Subscribe to stay informed
           </h2>
@@ -31,7 +31,7 @@ const Subscribe = () => {
             </form>
           </div>
         </div>
-		<div className="w-1/2 ">
+		<div className="md:w-1/2 ">
 			<img className="w-full" src="https://i.postimg.cc/3NZ4VMnk/How-to-Send-an-Email-Using-Windows-Power-Shell-API-transparent-520x270.png" alt="" />
 		</div>
       </div>
