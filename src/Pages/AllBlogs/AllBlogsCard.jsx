@@ -44,7 +44,9 @@ const AllBlogsCard = ({ blog }) => {
           Category: {category}
         </p>
         <p className="font-normal text-gray-700 dark:text-gray-400">
-          {shortDescription}
+        {
+					shortDescription.length > 60 ? <p> {shortDescription.slice(0, 80)} <span className='text-blue-700'>.....</span></p> : <p>{"shortDescription"}</p>
+          }
         </p>
         <div className="flex justify-between">
           <Button

@@ -47,7 +47,7 @@ const RecentBlogsCart = ({ blog }) => {
         </p>
         <p className="font-normal text-gray-700 dark:text-gray-400">
           {
-					shortDescription.length > 150 ? <p> {shortDescription.slice(0, 160)} <span className='text-blue-700'>.....</span></p> : <p>{shortDescription}</p>
+					shortDescription.length > 160 ? <p> {shortDescription.slice(0, 160)} <span className='text-blue-700'>.....</span></p> : <p>{shortDescription}</p>
           }
           </p>
         <div className="flex justify-between">
