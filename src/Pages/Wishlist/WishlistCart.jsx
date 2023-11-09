@@ -2,6 +2,7 @@ import { Card, Button } from "flowbite-react";
 import PropTypes from "prop-types";
 import useAxios from "../../Hooks/useAxios";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const WishlistCart = ({ item, refetch }) => {
   const { _id, title, image, shortDescription, category } = item;
@@ -57,9 +58,11 @@ const WishlistCart = ({ item, refetch }) => {
           <Button onClick={handleDelete} outline gradientDuoTone="purpleToPink">
             Remove Wishlist
           </Button>
-          <Button outline gradientDuoTone="purpleToPink">
-            Details
-          </Button>
+          <Link to={`/blog-details/${_id}`}>
+            <Button outline gradientDuoTone="purpleToPink">
+              Details
+            </Button>
+          </Link>
         </div>
       </Card>
     </div>

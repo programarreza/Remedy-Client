@@ -13,7 +13,7 @@ const BlogDetails = () => {
   const { user } = useAuth();
   const [newComment, setNewComment] = useState();
   const { _id, title, image, shortDescription, longDescription, email } = blogs;
-  
+  console.log(image);
 
 
   

@@ -1,14 +1,14 @@
+import toast from "react-hot-toast";
 import { Card, Checkbox, Label, TextInput } from "flowbite-react";
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import useAuth from "../../Hooks/useAuth";
-import toast from "react-hot-toast";
 
 const Login = () => {
-  const [isShow, setIsShow] = useState(true);
   const { googleLogin, login } = useAuth();
+  const [isShow, setIsShow] = useState(true);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -22,8 +22,9 @@ const Login = () => {
         console.log(result.user);
         toast.success("Login Successfully");
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(err => {
+        toast.error("something wrong please try again");
+        console.log(err);
       });
   };
   return (
