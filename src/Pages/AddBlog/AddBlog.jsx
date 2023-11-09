@@ -17,6 +17,8 @@ const AddBlog = () => {
     const longDescription = form.get("longDescription");
     const currentDate = new Date();
     const email = user?.email;
+    const userName = user?.displayName;
+    const userProfile = user?.photoURL;
     console.log(email);
     console.log(currentDate);
 
@@ -27,7 +29,9 @@ const AddBlog = () => {
       shortDescription,
       longDescription,
       currentDate,
-      email
+      email,
+      userName,
+      userProfile
     };
 
     axios

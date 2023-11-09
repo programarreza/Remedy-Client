@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
 const WishlistCart = ({ item, refetch }) => {
-  const { _id, title, image, shortDescription, category } = item;
+  const { _id, blog_id, title, image, shortDescription, category } = item;
   const axios = useAxios();
 
   const handleDelete = () => {
@@ -58,7 +58,7 @@ const WishlistCart = ({ item, refetch }) => {
           <Button onClick={handleDelete} outline gradientDuoTone="purpleToPink">
             Remove Wishlist
           </Button>
-          <Link to={`/blog-details/${_id}`}>
+          <Link to={`/blog-details/${blog_id}`}>
             <Button outline gradientDuoTone="purpleToPink">
               Details
             </Button>

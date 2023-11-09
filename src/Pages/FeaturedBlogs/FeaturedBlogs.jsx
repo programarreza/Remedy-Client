@@ -1,10 +1,54 @@
+import useAxios from "../../Hooks/useAxios";
+import FeaturedBlogsCard from "./FeaturedBlogsCard";
+import { Table } from "flowbite-react";
+import { useQuery } from "@tanstack/react-query";
 
 const FeaturedBlogs = () => {
-	return (
-		<div>
-			this is featured blogs
-		</div>
-	);
+  const axios = useAxios();
+
+  const getFeatureBlogs = async () => {
+    const response = await axios.get("/top-blog");
+    return response;
+  };
+
+  const {
+    data,
+    isLoading,
+    isError,
+    error,
+  } = useQuery({
+    queryKey: ["blogs"],
+    queryFn: getFeatureBlogs,
+  });
+
+  if (isLoading) {
+    return <h2>Loading...</h2>;
+  }
+  if (isError) {
+    return <h2>Something wrong: {error}</h2>;
+  }
+
+  return (
+    <div className="w-[1000px] mx-auto">
+      <Table>
+        <Table.Head>
+          <Table.HeadCell>SL.</Table.HeadCell>
+          <Table.HeadCell>Profile</Table.HeadCell>
+          <Table.HeadCell>Name</Table.HeadCell>
+          <Table.HeadCell>Title</Table.HeadCell>
+        </Table.Head>
+      </Table>
+      <div className="">
+        {data?.data?.map((topBlog, index) => (
+          <FeaturedBlogsCard
+            topBlog={topBlog}
+            key={index}
+            index={index}
+          ></FeaturedBlogsCard>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default FeaturedBlogs;

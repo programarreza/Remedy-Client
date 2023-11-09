@@ -19,6 +19,7 @@ const RecentBlogsCart = ({ blog }) => {
       shortDescription,
       category,
       email,
+      blog_id: _id,
     };
     console.log(wishlist);
 
