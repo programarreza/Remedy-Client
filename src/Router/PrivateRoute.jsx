@@ -7,7 +7,7 @@ const PrivateRoute = ({ children }) => {
   const { user } = useAuth();
   const { isLoading } = useBlogs();
 
-  // const location = useLocation()
+  
 
   if (isLoading) {
     return (

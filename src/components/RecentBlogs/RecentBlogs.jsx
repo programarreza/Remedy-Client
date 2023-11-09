@@ -1,6 +1,7 @@
 import RecentBlogsCart from "./RecentBlogsCart";
 import useAxios from "../../Hooks/useAxios";
 import { useQuery } from "@tanstack/react-query";
+import { MoonLoader } from "react-spinners";
 
 const RecentBlogs = () => {
   const axios = useAxios();
@@ -22,7 +23,9 @@ const RecentBlogs = () => {
   });
 
   if (isLoading) {
-    return <h2>Loading...</h2>;
+    return <div className="h-screen flex items-center  justify-center">
+    <MoonLoader color="#000" />
+  </div>
   }
   if (isError) {
     return <h2>Something wrong: {error}</h2>;

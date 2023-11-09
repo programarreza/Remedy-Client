@@ -3,6 +3,7 @@ import useBlogs from "../../Hooks/useBlogs";
 import AllBlogsCard from "./AllBlogsCard";
 import useAxios from "../../Hooks/useAxios";
 import { useEffect } from "react";
+import { MoonLoader } from "react-spinners";
 
 const AllBlogs = () => {
   const axios = useAxios();
@@ -22,7 +23,9 @@ const AllBlogs = () => {
 
   
   if (isLoading) {
-    return <h2>Loading....</h2>;
+    return <div className="h-screen flex items-center  justify-center">
+    <MoonLoader color="#000" />
+  </div>
   }
 
   const categories = [

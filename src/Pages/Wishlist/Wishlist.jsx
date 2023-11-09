@@ -1,5 +1,6 @@
 import useBlogs from "../../Hooks/useBlogs";
 import WishlistCart from "./WishlistCart";
+import { MoonLoader } from "react-spinners";
 
 
 const Wishlist = () => {
@@ -7,7 +8,9 @@ const Wishlist = () => {
 
   
   if (isLoading) {
-    <h2>Loading...</h2>;
+    return <div className="h-screen flex items-center  justify-center">
+    <MoonLoader color="#000" />
+  </div>
   }
   
   if(data?.wishlist?.length <= 0){

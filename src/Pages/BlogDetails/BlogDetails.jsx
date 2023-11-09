@@ -6,6 +6,7 @@ import useAuth from "../../Hooks/useAuth";
 import useAxios from "../../Hooks/useAxios";
 import Comments from "../../components/Comments/Comments";
 import { useQuery } from "@tanstack/react-query";
+import { MoonLoader } from "react-spinners";
 
 const BlogDetails = () => {
   const blogs = useLoaderData();
@@ -28,7 +29,9 @@ const BlogDetails = () => {
     });
   
     if(isLoading){
-      return <h2>Loading...</h2>
+      return <div className="h-screen flex items-center  justify-center">
+      <MoonLoader color="#000" />
+    </div>
     }
     if(isError){
       return <h2>Something wrong: {error}</h2>
