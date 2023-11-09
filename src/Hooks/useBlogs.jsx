@@ -9,10 +9,10 @@ const useBlogs = () => {
 
     queryFn: async () => {
       const data3 = await fetch(
-        `http://localhost:5000/add-wishlist/?email=${user?.email}`
+        `https://remedy-server.vercel.app/add-wishlist/?email=${user?.email}`
       );
-      const data1 = await fetch("http://localhost:5000/blog");
-      // const data2 = await fetch("http://localhost:5000/recent-blog");
+      const data1 = await fetch("https://remedy-server.vercel.app/blog");
+      
       
 
       const blogs = await data1.json();
