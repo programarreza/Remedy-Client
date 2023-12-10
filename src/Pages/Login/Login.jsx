@@ -28,7 +28,7 @@ const Login = () => {
       });
   };
   return (
-    <div className="">
+    <div className="h-screen">
       <Card className="max-w-sm mx-auto mt-28">
         <form onSubmit={handleLogin} className="flex flex-col gap-4">
           <h2 className="text-center text-xl font-semibold">Login</h2>

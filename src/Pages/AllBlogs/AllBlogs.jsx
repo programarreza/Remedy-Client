@@ -8,24 +8,27 @@ import { MoonLoader } from "react-spinners";
 const AllBlogs = () => {
   const axios = useAxios();
   const [category, setCategory] = useState("");
-  const { data, isLoading,  } = useBlogs(category);
-  const [blogs, setBlogs] = useState(data?.blogs)
-	
-  useEffect(() => {
-    axios.get(`/blog?category=${category}`)
-	.then(res => {
-		setBlogs(res?.data);
-	})
-	.catch(err => {
-		console.log(err);
-	})
-  }, [category, axios]);
+  const { data, isLoading } = useBlogs(category);
+  const [blogs, setBlogs] = useState(data?.blogs);
+  const [searchQuery, setSearchQuery] = useState("");
 
-  
+  useEffect(() => {
+    axios
+      .get(`/blog?category=${category}&title=${searchQuery}`)
+      .then((res) => {
+        setBlogs(res?.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [category, axios, searchQuery]);
+
   if (isLoading) {
-    return <div className="h-screen flex items-center  justify-center">
-    <MoonLoader color="#000" />
-  </div>
+    return (
+      <div className="h-screen flex items-center  justify-center">
+        <MoonLoader color="#000" />
+      </div>
+    );
   }
 
   const categories = [
@@ -36,6 +39,8 @@ const AllBlogs = () => {
     "Health",
     "Fashion",
   ];
+
+  console.log(searchQuery);
 
   return (
     <>
@@ -56,7 +61,15 @@ const AllBlogs = () => {
         </select>
       </div>
 
-      
+      <div>
+        <input
+          type="text"
+          placeholder="Search by title"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+      </div>
+
       <div className="grid  md:grid-cols-2 lg:grid-cols-3 gap-5">
         {blogs?.map((blog) => (
           <AllBlogsCard key={blog._id} blog={blog}></AllBlogsCard>

@@ -19,7 +19,7 @@ const Wishlist = () => {
   
 
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 min-h-screen">
       {data?.wishlist?.map((item, index) => (
         <WishlistCart key={index} item={item} refetch={refetch}></WishlistCart>
       ))}

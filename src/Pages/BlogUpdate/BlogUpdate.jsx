@@ -39,7 +39,7 @@ const BlogUpdate = () => {
   };
 
   return (
-    <div className="px-24">
+    <div className="px-24 min-h-[90vh]">
       <h2 className="text-5xl text-center font-semibold mt-12 mb-8">
         Update Blog
       </h2>

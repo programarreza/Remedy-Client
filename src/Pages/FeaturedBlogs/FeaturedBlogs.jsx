@@ -32,7 +32,7 @@ const FeaturedBlogs = () => {
   }
 
   return (
-    <div className="lg:w-[1000px] mx-auto">
+    <div className="lg:w-[1000px] mx-auto min-h-screen">
       <Table>
         <Table.Head>
           <Table.HeadCell>SL.</Table.HeadCell>

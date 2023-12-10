@@ -49,12 +49,12 @@ const router = createBrowserRouter([
 			{
 				path: "/blog-details/:id",
 				element: <PrivateRoute><BlogDetails></BlogDetails></PrivateRoute>,
-				loader: ({params}) => fetch(`https://remedy-server.vercel.app/blog-details/${params.id}`)
+				loader: ({params}) => fetch(`http://localhost:5000/blog-details/${params.id}`)
 			},
 			{
 				path: "/blog-update/:id",
 				element: <BlogUpdate></BlogUpdate>,
-				loader: ({params}) => fetch(`https://remedy-server.vercel.app/blog-update/${params.id}`)
+				loader: ({params}) => fetch(`http://localhost:5000/blog-update/${params.id}`)
 			}
 		]
 	}
