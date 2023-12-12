@@ -1,13 +1,14 @@
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import { NavLink } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
+import Theme from "./Theme";
 
 const Nav = () => {
   const { user, logout } = useAuth();
 
   const handleLogout = () => {
     logout();
-  }
+  };
   return (
     <Navbar fluid rounded className="shadow-lg">
       <Navbar.Brand href="#">
@@ -20,31 +21,26 @@ const Nav = () => {
           Remedy
         </span>
       </Navbar.Brand>
-      <div className="flex md:order-2">
-        {
-          user && <Dropdown
-          arrowIcon={false}
-          inline
-          label={
-            <Avatar
-              alt="User settings"
-              img={user?.photoURL}
-              rounded
-            />
-          }
-        >
-          <Dropdown.Header>
-            <span className="block text-sm">{user.displayName}</span>
-            
-          </Dropdown.Header>
-          
-          <Dropdown.Divider />
-          <Dropdown.Item onClick={handleLogout}>Sign out</Dropdown.Item>
-        </Dropdown>
-        }
+      <div className="flex md:order-2 items-center gap-4 justify-center">
+        {user && (
+          <Dropdown
+            arrowIcon={false}
+            inline
+            label={<Avatar alt="User settings" img={user?.photoURL} rounded />}
+          >
+            <Dropdown.Header>
+              <span className="block text-sm">{user.displayName}</span>
+            </Dropdown.Header>
+
+            <Dropdown.Divider />
+            <Dropdown.Item onClick={handleLogout}>Sign out</Dropdown.Item>
+          </Dropdown>
+        )}
+        <Theme />
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
+        <div className="flex items-center gap-6 text-base">
         <NavLink
           to="/"
           className={({ isActive, isPending }) =>
@@ -86,26 +82,31 @@ const Nav = () => {
           Wishlist
         </NavLink>
 
-        {
-          user ? "" : <div className="flex justify-center items-center gap-5">
-          <NavLink
-            to="/login"
-            className={({ isActive, isPending }) =>
-              isPending ? "pending" : isActive ? "text-[#ff4500]" : ""
-            }
-          >
-            Login
-          </NavLink>
-          <NavLink
-            to="/register"
-            className={({ isActive, isPending }) =>
-              isPending ? "pending" : isActive ? "text-[#ff4500]" : ""
-            }
-          >
-            Register
-          </NavLink>
         </div>
-        }
+        {user ? (
+          ""
+        ) : (
+          <div className="flex justify-center items-center gap-6 text-base">
+            <NavLink
+              to="/login"
+              className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "text-[#ff4500]" : ""
+              }
+            >
+              Login
+            </NavLink>
+            <NavLink
+              to="/register"
+              className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "text-[#ff4500]" : ""
+              }
+            >
+              Register
+            </NavLink>
+            <div></div>
+          </div>
+        )}
+        
       </Navbar.Collapse>
     </Navbar>
   );
