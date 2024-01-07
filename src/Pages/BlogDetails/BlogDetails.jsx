@@ -64,21 +64,21 @@ const BlogDetails = () => {
       });
   };
   return (
-    <div>
-      <div>
-        <Card>
+    <div className="px-24 bg-[#031525] text-white">
+      <div className="">
+        <Card className="bg-[#081b29] text-white border-none">
           <img
             src={image}
             alt="Meaningful alt text for an image that is not purely decorative"
             className="h-[450px]"
           />
-          <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            {title}
+          <h5 className="text-2xl font-bold ">
+            {title}321
           </h5>
-          <p className="font-normal text-gray-700 dark:text-gray-400">
+          <p className="font-normal">
             {shortDescription}
           </p>
-          <p className="font-normal text-gray-700 dark:text-gray-400">
+          <p className="font-normal ">
             {longDescription}
           </p>
           {user?.email === email ? (
@@ -124,10 +124,10 @@ const BlogDetails = () => {
       </div>
 
       <div>
-        <section className="bg-white dark:bg-gray-900 pt-8 lg:pt-16 antialiased">
+        <section className="bg-[#081b29] text-white py-8 border-y-2 border-[#031525] lg:pt-16 ">
           <div className="max-w-3xl  px-4">
             <div className="flex justify-between items-center">
-              <h2 className="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">
+              <h2 className="text-lg lg:text-2xl font-bold flex items-center">
                 Discussion ({comment?.data?.length})
                 <div>
                   {comment?.data?.map((blogComment, i) => (

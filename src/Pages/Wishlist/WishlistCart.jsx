@@ -38,21 +38,25 @@ const WishlistCart = ({ item, refetch }) => {
   };
 
   return (
-    <div>
-      <Card>
+    <div className="bg-[#031525]">
+      <Card className="bg-[#081b29] text-white">
         <img
           src={image}
           alt="Meaningful alt text for an image that is not purely decorative"
           className="h-[250px]"
         />
-        <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-          {title}
+        <h5 className="text-2xl font-bold tracking-tight">
+          {
+					title.length > 30 ? <p> {title.slice(0, 25)} </p> : <p>{title}</p>
+          }
         </h5>
-        <p className="font-normal text-gray-700 dark:text-gray-400">
+        <p className="font-normal">
           Category: {category}
         </p>
-        <p className="font-normal text-gray-700 dark:text-gray-400">
-          {shortDescription}
+        <p className="font-normal">
+        {
+					shortDescription.length > 60 ? <p> {shortDescription.slice(0, 146)} <span className='text-blue-700'>...</span></p> : <p>{"shortDescription"}</p>
+          }
         </p>
         <div className="flex justify-between">
           <Button onClick={handleDelete} outline gradientDuoTone="purpleToPink">

@@ -40,11 +40,12 @@ const AllBlogs = () => {
     "Fashion",
   ];
 
-  console.log(searchQuery);
 
   return (
     <>
-      <div>
+    {/* search and filter to category */}
+      <div className="flex justify-center  gap-6 bg-[#031525] py-4">
+      <div className="bg-[#031525]">
         <select
           onChange={(e) => setCategory(e.target.value)}
           className="select select-bordered rounded-md border border-gray-300"
@@ -67,10 +68,12 @@ const AllBlogs = () => {
           placeholder="Search by title"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
+          className="rounded-md "
         />
       </div>
+      </div>
 
-      <div className="grid  md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid  md:grid-cols-2 lg:grid-cols-3 gap-5 bg-[#031525] px-12">
         {blogs?.map((blog) => (
           <AllBlogsCard key={blog._id} blog={blog}></AllBlogsCard>
         ))}

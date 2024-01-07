@@ -5,7 +5,7 @@ import BlogFooter from "../components/BlogFooter/BlogFooter";
 
 const MainLayout = () => {
 	return (
-		<div className="font-grotesk max-w-7xl mx-auto">
+		<div className="font-grotesk mx-auto">
 			<Nav></Nav>
 			<Outlet/>
 			<BlogFooter></BlogFooter>

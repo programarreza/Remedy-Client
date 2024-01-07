@@ -29,21 +29,21 @@ const AllBlogsCard = ({ blog }) => {
     });
   };
 
-  return (
-    <div>
-      <Card>
+  return ( 
+    <div className="bg-[#031525] text-white">
+      <Card className="bg-[#031525] text-white">
         <img
           src={image}
           alt="Meaningful alt text for an image that is not purely decorative"
           className="h-[250px]"
         />
-        <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        <h5 className="text-2xl font-bold tracking-tight">
           {title}
         </h5>
-        <p className="font-normal text-gray-700 dark:text-gray-400">
+        <p className="font-normal">
           Category: {category}
         </p>
-        <p className="font-normal text-gray-700 dark:text-gray-400">
+        <p className="font-normal">
         {
 					shortDescription.length > 60 ? <p> {shortDescription.slice(0, 80)} <span className='text-blue-700'>.....</span></p> : <p>{"shortDescription"}</p>
           }

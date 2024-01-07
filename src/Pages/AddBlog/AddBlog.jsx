@@ -45,8 +45,8 @@ const AddBlog = () => {
       });
   };
   return (
-    <div className="px-5 md:px-24 h-screen">
-      <h2 className="text-5xl text-center font-semibold mt-12 mb-8">
+    <div className="px-5 md:px-24 h-screen bg-[#031525] text-white">
+      <h2 className="text-5xl text-center font-semibold pt-12 mb-8">
         Add Blog
       </h2>
       <form onSubmit={handleAddBlog}>

@@ -7,12 +7,12 @@ const FeaturedBlogsCard = ({topBlog, index}) => {
   console.log(userProfile);
 
   return (
-    <div>
-      <Table className="">
-        <Table.Body className="divide-y mb-12">
-          <Table.Row className="bg-white mb-12 dark:border-gray-700 dark:bg-gray-800">
-            <Table.Cell className="whitespace-nowrap w-24 font-medium text-gray-900 dark:text-white">
-              {index}
+    <div className='mt-0.5 '>
+      <Table className="text-white">
+        <Table.Body className="divide-y mb-12 ">
+          <Table.Row className="bg-[#081b29] mb-12 dark:border-gray-700 dark:bg-gray-800">
+            <Table.Cell className="whitespace-nowrap w-24 font-medium  dark:text-white">
+              {index + 1}
             </Table.Cell>
             <Table.Cell className="w-[100px] lg:w-[300px]"> <Avatar img={userProfile} alt="avatar of Jese" rounded /></Table.Cell>
             <Table.Cell className="lg:w-[300px] text-center">{userName}</Table.Cell>

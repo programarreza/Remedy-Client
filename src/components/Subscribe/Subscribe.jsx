@@ -7,9 +7,9 @@ const Subscribe = () => {
  
   }
   return (
-    <div className="w-full h-[70vh] bg-[url('https://i.postimg.cc/fyqttCQY/gray-abstract-wireframe-technology-background.jpg')] bg-cover bg-center shadow-lg">
+    <div className="w-full h-[70vh] bg-[url('https://i.postimg.cc/6q71tfSW/istockphoto-1325195247-170667a.webp')] bg-cover bg-center shadow-lg">
       <div className="w-full h-full  md:flex  justify-center items-center ">
-        <div className="md:w-1/2">
+        <div className="md:w-1/2 text-white">
           <h2 className="text-3xl md:text-5xl text-center">
             Subscribe to stay informed
           </h2>
@@ -25,14 +25,14 @@ const Subscribe = () => {
               placeholder="your email address.."
               required
             />
-            <button type="submit" className="border py-4 bg-slate-200 px-2 rounded-r-md ">
+            <button type="submit" className="border border-gray-500 border-l-0 py-4 bg-[#031525] px-2 rounded-r-md ">
               Subscribe!
             </button>
             </form>
           </div>
         </div>
 		<div className="md:w-1/2 ">
-			<img className="w-full" src="https://i.postimg.cc/3NZ4VMnk/How-to-Send-an-Email-Using-Windows-Power-Shell-API-transparent-520x270.png" alt="" />
+			<img className="w-full" src="https://i.postimg.cc/c43XhmnW/spam-email-icon-3d-render-illustration-47987-10131-removebg-preview.png" alt="" />
 		</div>
       </div>
     </div>

@@ -32,22 +32,26 @@ const RecentBlogsCart = ({ blog }) => {
 
   return (
     <div>
-      <Card className="h-[550px]">
+      <Card className="min-h-[400px] bg-[#081b29] text-white">
         
+        {/* <div className="min-h-[250px]"> */}
         <img
           src={image}
           alt="Meaningful alt text for an image that is not purely decorative"
-          className="h-[250px]"
+          className=" min-h-[250px]"
         />
-        <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-          {title}
+        {/* </div> */}
+        <h5 className="text-2xl font-bold  text-white">
+        {
+					title.length > 30 ? <p> {title.slice(0, 25)} </p> : <p>{title}</p>
+          }
         </h5>
-        <p className="font-normal text-gray-700 dark:text-gray-400">
+        <p className="font-normal dark:text-gray-400 text-white">
           Category: {category}
         </p>
-        <p className="font-normal text-gray-700 dark:text-gray-400">
+        <p className="font-normal dark:text-gray-400 text-white">
           {
-					shortDescription.length > 160 ? <p> {shortDescription.slice(0, 160)} <span className='text-blue-700'>.....</span></p> : <p>{shortDescription}</p>
+					shortDescription.length > 100 ? <p> {shortDescription.slice(0, 155)} <span className='text-blue-700'>.....</span></p> : <p>{shortDescription}</p>
           }
           </p>
         <div className="flex justify-between">
@@ -55,6 +59,7 @@ const RecentBlogsCart = ({ blog }) => {
             onClick={handleWishlist}
             outline
             gradientDuoTone="purpleToPink"
+            className="bg-red-500 text-white  rounded-md"
           >
             Add to Wishlist
           </Button>

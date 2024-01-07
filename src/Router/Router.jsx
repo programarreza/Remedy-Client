@@ -1,15 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layout/MainLayout";
-import Home from "../Pages/Home/Home";
 import AddBlog from "../Pages/AddBlog/AddBlog";
 import AllBlogs from "../Pages/AllBlogs/AllBlogs";
-import FeaturedBlogs from "../Pages/FeaturedBlogs/FeaturedBlogs";
-import Login from "../Pages/Login/Login";
-import Register from "../Pages/Register/Register";
-import Wishlist from "../Pages/Wishlist/Wishlist";
 import BlogDetails from "../Pages/BlogDetails/BlogDetails";
 import BlogUpdate from "../Pages/BlogUpdate/BlogUpdate";
 import Error from "../Pages/Error/Error";
+import FeaturedBlogs from "../Pages/FeaturedBlogs/FeaturedBlogs";
+import Home from "../Pages/Home/Home";
+import Login from "../Pages/Login/Login";
+import Register from "../Pages/Register/Register";
+import Wishlist from "../Pages/Wishlist/Wishlist";
 import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
@@ -49,12 +49,12 @@ const router = createBrowserRouter([
 			{
 				path: "/blog-details/:id",
 				element: <PrivateRoute><BlogDetails></BlogDetails></PrivateRoute>,
-				loader: ({params}) => fetch(`http://localhost:5000/blog-details/${params.id}`)
+				loader: ({params}) => fetch(`https://remedy-server.vercel.app/blog-details/${params.id}`)
 			},
 			{
 				path: "/blog-update/:id",
 				element: <BlogUpdate></BlogUpdate>,
-				loader: ({params}) => fetch(`http://localhost:5000/blog-update/${params.id}`)
+				loader: ({params}) => fetch(`https://remedy-server.vercel.app/blog-update/${params.id}`)
 			}
 		]
 	}

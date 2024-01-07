@@ -23,7 +23,7 @@ const FeaturedBlogs = () => {
   });
 
   if (isLoading) {
-    return <div className="h-screen flex items-center  justify-center">
+    return <div className="h-screen flex items-center  justify-center bg-[#031525]">
     <MoonLoader color="#000" />
   </div>
   }
@@ -32,13 +32,13 @@ const FeaturedBlogs = () => {
   }
 
   return (
-    <div className="lg:w-[1000px] mx-auto min-h-screen">
-      <Table>
-        <Table.Head>
-          <Table.HeadCell>SL.</Table.HeadCell>
-          <Table.HeadCell>Profile</Table.HeadCell>
-          <Table.HeadCell>Name</Table.HeadCell>
-          <Table.HeadCell>Title</Table.HeadCell>
+    <div className="lg:px-24 mx-auto min-h-screen bg-[#031525]">
+      <Table >
+        <Table.Head >
+          <Table.HeadCell className="bg-[#081b29] text-white py-4">SL.</Table.HeadCell>
+          <Table.HeadCell className="bg-[#081b29] text-white">Profile</Table.HeadCell>
+          <Table.HeadCell className="bg-[#081b29] text-white">Name</Table.HeadCell>
+          <Table.HeadCell className="bg-[#081b29] text-white">Title</Table.HeadCell>
         </Table.Head>
       </Table>
       <div className="">

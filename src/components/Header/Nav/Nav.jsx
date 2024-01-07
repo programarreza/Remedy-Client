@@ -1,7 +1,7 @@
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import { NavLink } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
-import Theme from "./Theme";
+
 
 const Nav = () => {
   const { user, logout } = useAuth();
@@ -10,7 +10,7 @@ const Nav = () => {
     logout();
   };
   return (
-    <Navbar fluid rounded className="shadow-lg">
+    <Navbar fluid className="shadow-lg bg-[#031525] text-white sticky top-0 z-10">
       <Navbar.Brand href="#">
         <img
           src="https://i.postimg.cc/k4RNH2Qm/Remedy.png"
@@ -36,7 +36,6 @@ const Nav = () => {
             <Dropdown.Item onClick={handleLogout}>Sign out</Dropdown.Item>
           </Dropdown>
         )}
-        <Theme />
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
@@ -103,7 +102,7 @@ const Nav = () => {
             >
               Register
             </NavLink>
-            <div></div>
+           
           </div>
         )}
         

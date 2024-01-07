@@ -3,7 +3,7 @@ import { Footer } from "flowbite-react";
 const BlogFooter = () => {
   return (
     <div>
-      <Footer container className="bg-[#1f2937] text-white">
+      <Footer container className="bg-[#081b29] text-white rounded-none">
         <div className="w-full text-center">
           <div className="w-full justify-between sm:flex sm:items-center sm:justify-between">
 			<div className="flex items-center justify-normal gap-5">
@@ -12,7 +12,7 @@ const BlogFooter = () => {
 			</div>
             <Footer.Brand />
             
-            <Footer.LinkGroup>
+            <Footer.LinkGroup className="text-white">
               <Footer.Link href="#">About</Footer.Link>
               <Footer.Link href="#">Privacy Policy</Footer.Link>
               <Footer.Link href="#">Licensing</Footer.Link>
