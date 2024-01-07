@@ -2,13 +2,14 @@ import toast from "react-hot-toast";
 import { Card, Checkbox, Label, TextInput } from "flowbite-react";
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import useAuth from "../../Hooks/useAuth";
 
 const Login = () => {
   const { googleLogin, login } = useAuth();
   const [isShow, setIsShow] = useState(true);
+  const navigate = useNavigate()
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -20,16 +21,18 @@ const Login = () => {
     login(email, password)
       .then((result) => {
         console.log(result.user);
+        navigate("/")
         toast.success("Login Successfully");
       })
-      .catch(err => {
+      .catch((err) => {
         toast.error("something wrong please try again");
         console.log(err);
       });
   };
   return (
-    <div className="h-screen">
-      <Card className="max-w-sm mx-auto mt-28">
+    <div className="h-screen bg-[#031525] text-white ">
+      <div className="pb-24"></div>
+      <Card className="max-w-sm mx-auto  bg-[#081b29] ">
         <form onSubmit={handleLogin} className="flex flex-col gap-4">
           <h2 className="text-center text-xl font-semibold">Login</h2>
           <div>
@@ -60,13 +63,19 @@ const Login = () => {
               onClick={() => setIsShow(!isShow)}
               className="text-xl absolute cursor-pointer -mt-8 ml-[300px]"
             >
-              {isShow ? <FaEyeSlash /> : <FaEye />}
+              {isShow ? (
+                <FaEyeSlash className="text-black" />
+              ) : (
+                <FaEye className="text-black" />
+              )}
             </p>
           </div>
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2">
               <Checkbox id="remember" />
-              <Label htmlFor="remember">Remember me</Label>
+              <Label htmlFor="remember" className="text-white">
+                Remember me
+              </Label>
             </div>
 
             <div className="flex items-center gap-2">

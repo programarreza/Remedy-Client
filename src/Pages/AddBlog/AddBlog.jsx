@@ -71,8 +71,9 @@ const AddBlog = () => {
           </div>
           <select
             name="category"
-            className="select select-bordered rounded-md border border-gray-300"
+            className="select select-bordered text-black rounded-md border border-gray-300"
             required
+            
           >
             <option disabled selected>
               Category

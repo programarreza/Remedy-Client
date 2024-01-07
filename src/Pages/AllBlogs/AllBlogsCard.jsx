@@ -38,14 +38,16 @@ const AllBlogsCard = ({ blog }) => {
           className="h-[250px]"
         />
         <h5 className="text-2xl font-bold tracking-tight">
-          {title}
+        {
+					title.length > 30 ? <p> {title.slice(0, 25)} </p> : <p>{title}</p>
+          }
         </h5>
         <p className="font-normal">
           Category: {category}
         </p>
         <p className="font-normal">
         {
-					shortDescription.length > 60 ? <p> {shortDescription.slice(0, 80)} <span className='text-blue-700'>.....</span></p> : <p>{"shortDescription"}</p>
+					shortDescription.length > 60 ? <p> {shortDescription.slice(0, 75)} <span className='text-blue-700'>.....</span></p> : <p>{"shortDescription"}</p>
           }
         </p>
         <div className="flex justify-between">
