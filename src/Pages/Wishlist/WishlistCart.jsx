@@ -9,7 +9,6 @@ const WishlistCart = ({ item, refetch }) => {
   const axios = useAxios();
 
   const handleDelete = () => {
-    console.log(_id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -46,8 +45,8 @@ const WishlistCart = ({ item, refetch }) => {
           className="h-[250px]"
         />
         <h5 className="text-2xl font-bold tracking-tight">
-          {
-					title.length > 30 ? <p> {title.slice(0, 25)} </p> : <p>{title}</p>
+        {
+					title.length > 25 ? <p> {title.slice(0, 26)} </p> : <p>{title}</p>
           }
         </h5>
         <p className="font-normal">
@@ -55,7 +54,7 @@ const WishlistCart = ({ item, refetch }) => {
         </p>
         <p className="font-normal">
         {
-					shortDescription.length > 60 ? <p> {shortDescription.slice(0, 146)} <span className='text-blue-700'>...</span></p> : <p>{"shortDescription"}</p>
+					shortDescription.length > 60 ? <p> {shortDescription.slice(0, 65)} <span className='text-blue-700'>.....</span></p> : <p>{"shortDescription"}</p>
           }
         </p>
         <div className="flex justify-between">

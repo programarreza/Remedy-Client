@@ -12,7 +12,6 @@ const AllBlogsCard = ({ blog }) => {
   const email = user?.email;
 
   const handleWishlist = () => {
-    console.log(_id);
     const wishlist = {
       title,
       image,
@@ -20,7 +19,6 @@ const AllBlogsCard = ({ blog }) => {
       category,
       email,
     };
-    console.log(wishlist);
 
     axios.post("/add-wishlist", wishlist)
     .then((res) => {
@@ -39,7 +37,7 @@ const AllBlogsCard = ({ blog }) => {
         />
         <h5 className="text-2xl font-bold tracking-tight">
         {
-					title.length > 30 ? <p> {title.slice(0, 25)} </p> : <p>{title}</p>
+					title.length > 25 ? <p> {title.slice(0, 26)} </p> : <p>{title}</p>
           }
         </h5>
         <p className="font-normal">
@@ -47,7 +45,7 @@ const AllBlogsCard = ({ blog }) => {
         </p>
         <p className="font-normal">
         {
-					shortDescription.length > 60 ? <p> {shortDescription.slice(0, 75)} <span className='text-blue-700'>.....</span></p> : <p>{"shortDescription"}</p>
+					shortDescription.length > 60 ? <p> {shortDescription.slice(0, 65)} <span className='text-blue-700'>.....</span></p> : <p>{"shortDescription"}</p>
           }
         </p>
         <div className="flex justify-between">

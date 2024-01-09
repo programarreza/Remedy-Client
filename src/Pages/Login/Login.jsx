@@ -37,7 +37,7 @@ const Login = () => {
           <h2 className="text-center text-xl font-semibold">Login</h2>
           <div>
             <div className="mb-2 ">
-              <Label htmlFor="email1" value="Email" />
+              <Label htmlFor="email1" value="Email" className="text-white"/>
             </div>
             <TextInput
               id="email1"
@@ -49,7 +49,7 @@ const Login = () => {
           </div>
           <div>
             <div className="mb-2 ">
-              <Label htmlFor="password1" value="Password" />
+              <Label htmlFor="password1" value="Password" className="text-white"/>
             </div>
             <TextInput
               className="relative"
