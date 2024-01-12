@@ -11,8 +11,8 @@ const PrivateRoute = ({ children }) => {
 
   if (isLoading) {
     return (
-      <div className="h-screen flex items-center  justify-center">
-        <MoonLoader color="#000" />
+      <div className="h-screen flex items-center bg-[#031525] justify-center">
+        <MoonLoader color="#fff" />
       </div>
     );
   }

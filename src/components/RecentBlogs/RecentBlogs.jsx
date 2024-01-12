@@ -23,8 +23,8 @@ const RecentBlogs = () => {
   });
 
   if (isLoading) {
-    return <div className="h-screen flex items-center  justify-center">
-    <MoonLoader color="#000" />
+    return <div className="h-screen flex items-center bg-[#031525] justify-center">
+    <MoonLoader color="#fff" />
   </div>
   }
   if (isError) {
@@ -34,7 +34,7 @@ const RecentBlogs = () => {
   
 
   return (
-    <div className="px-14 bg-[#031525] text-white">
+    <div className="px-6 xl:px-14 bg-[#031525] text-white">
       <h2 className="text-5xl font-bold pt-12 text-center">Recent Blogs</h2>
       <div className="grid  md:grid-cols-2 lg:grid-cols-3 gap-5 py-12">
         {recentBlogs?.data?.map((blog, index) => (

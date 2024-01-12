@@ -10,17 +10,17 @@ const Subscribe = () => {
     <div className="w-full h-[70vh] bg-[url('https://i.postimg.cc/6q71tfSW/istockphoto-1325195247-170667a.webp')] bg-cover bg-center shadow-lg">
       <div className="w-full h-full  md:flex  justify-center items-center ">
         <div className="md:w-1/2 text-white">
-          <h2 className="text-3xl md:text-5xl text-center">
+          <h2 className="pt-12 md:pt-0 text-2xl lg:text-3xl xl:text-5xl text-center">
             Subscribe to stay informed
           </h2>
-          <p className="text-center my-4">
+          <p className="text-center my-4 ">
             Shortest way to explore what will happen on Inconference
           </p>
 
           <div className="mt-5 mx-auto text-center">
             <form onSubmit={handleSubmit}>
             <input
-              className="p-4 md:px-24 border-r-0 bg-transparent border rounded-lg rounded-r-none outline-none "
+              className="p-4 md:px-6 lg:24 border-r-0 bg-transparent border rounded-lg rounded-r-none outline-none "
               type="email"
               placeholder="your email address.."
               required
@@ -31,7 +31,7 @@ const Subscribe = () => {
             </form>
           </div>
         </div>
-		<div className="md:w-1/2 ">
+		<div className=" md:w-1/2 hidden md:block">
 			<img className="w-full" src="https://i.postimg.cc/c43XhmnW/spam-email-icon-3d-render-illustration-47987-10131-removebg-preview.png" alt="" />
 		</div>
       </div>

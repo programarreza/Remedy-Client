@@ -12,7 +12,7 @@ const BlogFooter = () => {
 			</div>
             <Footer.Brand />
             
-            <Footer.LinkGroup className="text-white">
+            <Footer.LinkGroup className="text-white gap-10 md:gap-2">
               <Footer.Link href="#">About</Footer.Link>
               <Footer.Link href="#">Privacy Policy</Footer.Link>
               <Footer.Link href="#">Licensing</Footer.Link>
