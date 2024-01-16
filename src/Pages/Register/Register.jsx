@@ -63,18 +63,7 @@ const Register = () => {
                 required
               />
             </div>
-            <div>
-              <div className="mb-2 ">
-                <Label htmlFor="name" value="Photo" className="text-white" />
-              </div>
-              <TextInput
-                id="name1"
-                type="text"
-                name="photo"
-                placeholder=" Photo URL"
-                required
-              />
-            </div>
+           
             <div>
               <div className="mb-2 ">
                 <Label htmlFor="email1" value=" Email" className="text-white" />
@@ -110,6 +99,23 @@ const Register = () => {
                 {isShow ? <FaEyeSlash /> : <FaEye />}
               </p>
             </div>
+
+            {/* image upload */}
+            <div>
+                  <label htmlFor="image" className="block mb-2 text-sm">
+                    Upload Profile Image:
+                  </label>
+                  <input
+                   name="photo"
+                    required
+                    type="file"
+                    id="image"
+                    accept="image/*"
+                  />
+                  
+                </div>
+
+
             <div className="flex items-center gap-2">
               <Checkbox id="remember" />
               <Label
